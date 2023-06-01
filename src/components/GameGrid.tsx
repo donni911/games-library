@@ -12,8 +12,11 @@ function GameGrid() {
   return (
     <ul>
       {error && <p>{error}</p>}
-
-      <SimpleGrid columns={{ base: 1, sm: 2, md: 3, xl: 5 }} spacing={10}>
+      <SimpleGrid
+        columns={{ base: 1, sm: 2, md: 3, xl: 4 }}
+        padding={2.5}
+        spacing={4}
+      >
         {games.map((game) => (
           <GameCardContainer key={game.id}>
             <GameCard game={game} />
