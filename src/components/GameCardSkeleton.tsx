@@ -1,15 +1,8 @@
-import {
-  Card,
-  Skeleton,
-  CardBody,
-  SkeletonText,
-  SkeletonCircle,
-  HStack,
-} from "@chakra-ui/react";
+import { Card, Skeleton, SkeletonCircle, HStack } from "@chakra-ui/react";
 
 const GameCardSkeleton = () => {
   return (
-    <Card width={"100%"} borderRadius={"lg"}>
+    <Card>
       <Skeleton height="200px" padding={"100px"} />
       <Skeleton height="20px" margin={2} />
       <HStack p={2}>

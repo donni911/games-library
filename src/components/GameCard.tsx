@@ -16,7 +16,7 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card width="100%" borderRadius={"lg"} overflow={"hidden"}>
+    <Card height={"100%"}>
       <Image src={getCroppedImageUrl(game.background_image)} alt={game.name} />
       <CardBody display="flex">
         <VStack w={"full"} alignItems={"flex-start"}>
