@@ -16,11 +16,11 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card borderRadius={"lg"} overflow={"hidden"}>
+    <Card width="100%" borderRadius={"lg"} overflow={"hidden"}>
       <Image src={getCroppedImageUrl(game.background_image)} alt={game.name} />
       <CardBody display="flex">
         <VStack w={"full"} alignItems={"flex-start"}>
-          <Heading fontSize="2xl">{game.name}</Heading>
+          <Heading fontSize={{ base: "2xl", md: "xl" }}>{game.name}</Heading>
           <HStack
             marginTop={"auto"}
             w={"full"}
