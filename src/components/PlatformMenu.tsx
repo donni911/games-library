@@ -1,14 +1,8 @@
-import {
-  Menu,
-  MenuButton,
-  Button,
-  MenuList,
-  MenuItem,
-  Skeleton,
-} from "@chakra-ui/react";
+import { Menu, MenuButton, Button, MenuList, MenuItem } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 
 import usePlatforms, { Platform } from "../hooks/usePlatforms";
+import SelectorSkeleton from "./SelectorSkeleton";
 
 interface Props {
   onSelectedPlatform: (platform: Platform) => void;
@@ -19,10 +13,7 @@ const PlatformMenu = ({ onSelectedPlatform, selectedPlatform }: Props) => {
   const { data: platforms, error, isLoading } = usePlatforms();
   if (error) return null;
 
-  if (isLoading)
-    return (
-      <Skeleton height="40px" width="120px" borderRadius={"md"}></Skeleton>
-    );
+  if (isLoading) return <SelectorSkeleton />;
 
   return (
     <Menu>
@@ -33,6 +24,7 @@ const PlatformMenu = ({ onSelectedPlatform, selectedPlatform }: Props) => {
         {platforms.map((platform) => (
           <MenuItem
             key={platform.id}
+            fontWeight={selectedPlatform?.id === platform.id ? "bold" : ""}
             onClick={() => onSelectedPlatform(platform)}
           >
             {platform.name}
