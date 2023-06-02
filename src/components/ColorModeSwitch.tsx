@@ -16,6 +16,7 @@ function ColorModeSwitch() {
         display="flex"
         gap={2}
         alignItems="center"
+        justifyContent="flex-end"
       >
         <FormLabel htmlFor="dark-mode" m="0">
           Light
