@@ -18,7 +18,11 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <Card height={"100%"}>
-      <Image src={getCroppedImageUrl(game.background_image)} alt={game.name} />
+      <Image
+        aspectRatio={16 / 9}
+        src={getCroppedImageUrl(game.background_image)}
+        alt={game.name}
+      />
       <CardBody display="flex">
         <VStack w={"full"} alignItems={"flex-start"}>
           <Heading fontSize={{ base: "2xl", md: "xl" }}>

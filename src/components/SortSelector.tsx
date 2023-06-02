@@ -23,6 +23,8 @@ const SortSelector = ({ onSelectSortOrder, selectedSortOrder }: Props) => {
 
   if (isLoading) return <SelectorSkeleton />;
 
+  console.log(selectedSortOrder);
+
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
@@ -35,6 +37,9 @@ const SortSelector = ({ onSelectSortOrder, selectedSortOrder }: Props) => {
               onSelectSortOrder(order);
             }}
             key={order.value}
+            fontWeight={
+              selectedSortOrder?.value === order.value ? "bold" : "normal"
+            }
           >
             {order.label}
           </MenuItem>
