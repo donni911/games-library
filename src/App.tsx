@@ -11,6 +11,7 @@ import PlatformMenu from "./components/PlatformMenu";
 
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
+import GameHeading from "./components/GameHeading";
 
 export interface sortOrder {
   value: string;
@@ -54,6 +55,7 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area="main">
+          <GameHeading gameQuery={gameQuery} />
           <HStack spacing={5} paddingX={2.5}>
             <PlatformMenu
               selectedPlatform={gameQuery.platform}
