@@ -18,7 +18,7 @@ interface Props {
 }
 
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
-  const { data: genres, isLoading, error } = useGenres();
+  const { data, isLoading, error } = useGenres();
 
   const [height, setHeight] = useState<string>("");
   const currentList = useRef<HTMLUListElement>(null);
@@ -45,7 +45,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
         overflowX="hidden"
         overflowY="auto"
       >
-        {genres.map((genre) => (
+        {data.results.map((genre) => (
           <ListItem key={genre.id} paddingY={1}>
             <HStack>
               <Image
