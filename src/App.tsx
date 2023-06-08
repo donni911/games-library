@@ -9,7 +9,7 @@ import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import PlatformMenu from "./components/PlatformMenu";
 
-import { Platform } from "./hooks/useGames";
+import { Platform } from "./hooks/usePlatforms";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
 

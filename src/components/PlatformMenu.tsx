@@ -10,7 +10,7 @@ interface Props {
 }
 
 const PlatformMenu = ({ onSelectedPlatform, selectedPlatform }: Props) => {
-  const { data: platforms, error, isLoading } = usePlatforms();
+  const { data, error, isLoading } = usePlatforms();
   if (error) return null;
 
   if (isLoading) return <SelectorSkeleton />;
@@ -21,7 +21,7 @@ const PlatformMenu = ({ onSelectedPlatform, selectedPlatform }: Props) => {
         {selectedPlatform?.name || "Platforms"}
       </MenuButton>
       <MenuList>
-        {platforms.map((platform) => (
+        {data.results.map((platform) => (
           <MenuItem
             key={platform.id}
             fontWeight={selectedPlatform?.id === platform.id ? "bold" : ""}
