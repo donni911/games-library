@@ -11,6 +11,8 @@ interface Props {
 
 const PlatformMenu = ({ onSelectedPlatform, selectedPlatform }: Props) => {
   const { data, error, isLoading } = usePlatforms();
+  console.log(error, isLoading);
+
   if (error) return null;
 
   if (isLoading) return <SelectorSkeleton />;
