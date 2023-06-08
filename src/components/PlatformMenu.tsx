@@ -6,12 +6,13 @@ import SelectorSkeleton from "./SelectorSkeleton";
 
 interface Props {
   onSelectedPlatform: (platform: Platform) => void;
-  selectedPlatform: Platform | null;
+  selectedPlatformId?: number;
 }
 
-const PlatformMenu = ({ onSelectedPlatform, selectedPlatform }: Props) => {
+const PlatformMenu = ({ onSelectedPlatform, selectedPlatformId }: Props) => {
   const { data, error, isLoading } = usePlatforms();
-  console.log(error, isLoading);
+
+  const selectedPlatform = data?.results.find(p => p.id === selectedPlatformId)
 
   if (error) return null;
 
@@ -23,7 +24,7 @@ const PlatformMenu = ({ onSelectedPlatform, selectedPlatform }: Props) => {
         {selectedPlatform?.name || "Platforms"}
       </MenuButton>
       <MenuList>
-        {data.results.map((platform) => (
+        {data?.results.map((platform) => (
           <MenuItem
             key={platform.id}
             fontWeight={selectedPlatform?.id === platform.id ? "bold" : ""}

@@ -14,10 +14,10 @@ import { Genre } from "../hooks/useGenres";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
   const { data, isLoading, error } = useGenres();
 
   const [height, setHeight] = useState<string>("");
@@ -45,7 +45,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
         overflowX="hidden"
         overflowY="auto"
       >
-        {data.results.map((genre) => (
+        {data?.results.map((genre) => (
           <ListItem key={genre.id} paddingY={1}>
             <HStack>
               <Image
@@ -60,9 +60,9 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
                 variant="link"
                 onClick={() => onSelectGenre(genre)}
                 fontSize="lg"
-                fontWeight={selectedGenre?.id === genre.id ? "bold" : ""}
+                fontWeight={selectedGenreId === genre.id ? "bold" : ""}
                 textDecoration={
-                  selectedGenre?.id === genre.id ? "underline" : ""
+                  selectedGenreId === genre.id ? "underline" : ""
                 }
               >
                 {genre.name}

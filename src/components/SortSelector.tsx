@@ -23,7 +23,6 @@ const SortSelector = ({ onSelectSortOrder, selectedSortOrder }: Props) => {
 
   if (isLoading) return <SelectorSkeleton />;
 
-  console.log(selectedSortOrder);
 
   return (
     <Menu>
