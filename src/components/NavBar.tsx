@@ -3,11 +3,8 @@ import logo from "../assets/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
+function NavBar() {
 
-function NavBar({ onSearch }: Props) {
   return (
     <Grid
       templateColumns={{ base: "1fr 1fr", xl: "auto 1fr auto" }}
@@ -24,7 +21,7 @@ function NavBar({ onSearch }: Props) {
         rowStart={{ base: 2, xl: "auto" }}
         rowEnd={{ base: 3, xl: "auto" }}
       >
-        <SearchInput onSearch={onSearch} />
+        <SearchInput />
       </GridItem>
       <GridItem>
         <ColorModeSwitch />

@@ -1,4 +1,4 @@
-import { Badge } from "@chakra-ui/react";
+import { Badge, Tooltip } from "@chakra-ui/react";
 
 interface Props {
   score: number;
@@ -7,9 +7,11 @@ interface Props {
 const CriticScore = ({ score }: Props) => {
   const color = score > 75 ? "green" : score > 50 ? "yellow" : "red";
   return (
-    <Badge colorScheme={color} paddingX={2} fontSize="14px" borderRadius={"md"}>
-      {score}
-    </Badge>
+    <Tooltip colorScheme="green" label='Critic Score'>
+      <Badge colorScheme={color} paddingX={2} fontSize="14px" borderRadius={"md"}>
+        {score}
+      </Badge>
+    </Tooltip>
   );
 };
 

@@ -2,15 +2,13 @@ import { Menu, MenuButton, Button, MenuList, MenuItem } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import usePlatforms from "../hooks/usePlatforms";
 import SelectorSkeleton from "./SelectorSkeleton";
-import { sortOrder } from "../App";
+import useGameQueryStore from "../store";
 
-interface Props {
-  selectedSortOrder: sortOrder | null;
-  onSelectSortOrder: (sortOrder: sortOrder) => void;
-}
 
-const SortSelector = ({ onSelectSortOrder, selectedSortOrder }: Props) => {
+const SortSelector = () => {
   const { isLoading } = usePlatforms();
+  const sortOrder = useGameQueryStore(s => s.gameQuery.sortOrder);
+  const setSortOrder = useGameQueryStore(s => s.setSortOrder);
 
   const sortOrders = [
     { value: "", label: "Relevance" },
@@ -23,21 +21,20 @@ const SortSelector = ({ onSelectSortOrder, selectedSortOrder }: Props) => {
 
   if (isLoading) return <SelectorSkeleton />;
 
-
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        Order by: {selectedSortOrder?.label || "Relevance"}
+        Order by: {sortOrder?.label || "Relevance"}
       </MenuButton>
       <MenuList>
         {sortOrders.map((order) => (
           <MenuItem
             onClick={() => {
-              onSelectSortOrder(order);
+              setSortOrder(order);
             }}
             key={order.value}
             fontWeight={
-              selectedSortOrder?.value === order.value ? "bold" : "normal"
+              sortOrder?.value === order.value ? "bold" : "normal"
             }
           >
             {order.label}
