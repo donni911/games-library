@@ -2,9 +2,9 @@ import { Grid, Image, GridItem } from "@chakra-ui/react";
 import logo from "../assets/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
+import { Link } from "react-router-dom";
 
 function NavBar() {
-
   return (
     <Grid
       templateColumns={{ base: "1fr 1fr", xl: "auto 1fr auto" }}
@@ -13,7 +13,9 @@ function NavBar() {
       padding={"10px"}
     >
       <GridItem>
-        <Image boxSize={"60px"} src={logo} />
+        <Link to="/">
+          <Image boxSize={"60px"} src={logo} />
+        </Link>
       </GridItem>
       <GridItem
         colEnd={{ base: -1, xl: "auto" }}
