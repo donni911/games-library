@@ -11,13 +11,14 @@ import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";
 import Emoji from "./Emoji";
+import { Link } from "react-router-dom";
 interface Props {
   game: Game;
 }
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card height={"100%"}>
+    <Card height={"100%"} >
       <Image
         aspectRatio={16 / 9}
         src={getCroppedImageUrl(game.background_image)}
@@ -25,7 +26,7 @@ const GameCard = ({ game }: Props) => {
       />
       <CardBody display="flex">
         <VStack w={"full"} alignItems={"flex-start"}>
-          <Heading fontSize={{ base: "2xl", md: "xl" }}>
+          <Heading as={Link} to={`/games/${game.slug}`} fontSize={{ base: "2xl", md: "xl" }}>
             {game.name} <Emoji rating={game.rating_top} />
           </Heading>
           <HStack

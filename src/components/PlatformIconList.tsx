@@ -35,10 +35,9 @@ const PlatformIconList = ({ platforms }: Props) => {
   return (
     <HStack marginY={2.5} flexWrap="wrap">
       {platforms.map((platform) => (
-        <Tooltip label={platform.name}>
+        <Tooltip key={platform.slug} label={platform.name}>
           <Box>
             <Icon
-              key={platform.slug}
               as={iconMap[platform.slug]}
               color="gray.500"
             />
