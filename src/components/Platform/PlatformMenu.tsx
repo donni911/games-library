@@ -1,10 +1,10 @@
 import { Menu, MenuButton, Button, MenuList, MenuItem } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 
-import usePlatforms from "../hooks/usePlatforms";
-import SelectorSkeleton from "./SelectorSkeleton";
-import usePlatform from "../hooks/useGenre";
-import useGameQueryStore from "../store";
+import usePlatforms from "../../hooks/usePlatforms";
+import SelectorSkeleton from "../Selector/SelectorSkeleton";
+import usePlatform from "../../hooks/useGenre";
+import useGameQueryStore from "../../store";
 
 const PlatformMenu = () => {
   const { data, error, isLoading } = usePlatforms();

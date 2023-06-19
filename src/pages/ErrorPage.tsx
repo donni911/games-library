@@ -1,6 +1,6 @@
 import { Button, Heading, Text, VStack } from "@chakra-ui/react";
 import { Link, isRouteErrorResponse, useRouteError } from "react-router-dom";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/UI/NavBar";
 
 const ErrorPage = () => {
     const error = useRouteError();

@@ -6,10 +6,10 @@ import {
   Heading,
   VStack,
 } from "@chakra-ui/react";
-import { Game } from "../entities/Game";
-import PlatformIconList from "./PlatformIconList";
-import CriticScore from "./CriticScore";
-import getCroppedImageUrl from "../services/image-url";
+import { Game } from "../../entities/Game";
+import PlatformIconList from "../Platform/PlatformIconList";
+import CriticScore from "../UI/CriticScore";
+import getCroppedImageUrl from "../../services/image-url";
 import Emoji from "./Emoji";
 import { Link } from "react-router-dom";
 interface Props {
